@@ -128,3 +128,74 @@ getInput(userInput: nil)
 getInput(userInput: "Hello Dean.")
 
 
+// Swift arrays - ex1 - array of integers
+let exArray1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] /// created an integer array
+
+let accessFourthElement = exArray1[exArray1.count - 4] /// counts the elements in the arrays and accesses the specific element by index
+print("The fourth element is \(accessFourthElement)") /// prints the 4th element of the index from the back
+
+let accessSeventhElement = exArray1[exArray1.count - 7] /// counts the elements in the arrays and accesses the specific element by index
+print("The seventh element is \(accessSeventhElement)") /// prints the 7th element of the index from the back
+
+
+// Swift arrays - ex2 - creating empty array and appending
+var dummyArray: [Int] = [] /// creating an empty array
+dummyArray.append(contentsOf: [2,4,6,8,10])
+///note: I cannot use a constant 'let' to initialize an array and then later expect to append values to it
+///I should use 'var' instead
+print(dummyArray)
+
+
+// Swift arrays - ex3 - creating a string array and removing items
+var dummyArray1: [String] = []
+dummyArray1.append(contentsOf: ["David","Viraj","Rohit","Pratik","Tarush"])
+print(dummyArray1)
+dummyArray1.remove(at: 2) /// this removed an element/item from an array at index level
+print(dummyArray1)
+
+
+// Swift loops - ex1 - for loop - print even nos from 1-20
+let dumNums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+//for num in dumNums {
+//    print("testing.. testing.. \(num)")
+//}
+for num1 in dumNums {
+    if num1 % 2 == 0 {
+        print("the even number is: \(num1)")
+    }
+} /// this loop has an if condition to check if the modulus operation result is equivalent to 0. If true, it prints the number of the reference, which is 2 and then so on until 20.
+
+
+// Swift loops - ex2 - printing numbers from 20 to 1 using for loop
+for num2 in stride(from: 20, to: 1, by: -1) {
+    print("The given number is \(num2)")
+} /// stride from-to-by: Returns a sequence from a starting value to, but not including, an end value, stepping by the specified amount
+
+for num3 in stride(from: 20, through: 1, by: -1) {
+    print("The given number is \(num3)")
+} /// stride-through-by: Returns a sequence from a starting value toward, and possibly including, an end value, stepping by the specified amount.
+
+for num4 in dumNums.reversed() {
+    print("The given number is \(num4)")
+} /// reversed(): Returns a view presenting the elements of the collection in reverse order.
+
+for num5 in (1...20).reversed() {
+    print(num5)
+} /// here instead of accessing the dumNums array i am making num5 as a constant by defining a range in the loop.
+
+
+// Swift loops - ex3 - while loop - printing numbers from 20 to 1
+var numb = 20
+while numb > 0 {
+    print(numb)
+    numb = numb - 1
+}
+
+
+// Swift loops - ex5 - while loop - array of fruits and iterate over it to print each element
+var fruitBasket = ["Apple","Banana","Cantaloupe","Dragronfruit","Grape","Jackfruit","Kiwi","Mango","Orange","Passionfruit","Raspberry","Strawberry"]
+
+for fruit in fruitBasket {
+    print("I ate a \(fruit) today")
+}
+
