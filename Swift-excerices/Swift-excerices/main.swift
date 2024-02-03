@@ -199,3 +199,83 @@ for fruit in fruitBasket {
     print("I ate a \(fruit) today")
 }
 
+
+// Swift loops - ex4 - for loop - Print the numbers 1-30 but skip any multiple of 3
+for numRange in 1...30 {
+    if numRange % 3 == 0 {
+        continue
+    }
+    print("The remaining items are: \(numRange)")
+} /// in for loops, If you want to skip an iteration item, you can use the continue keyword.
+
+
+// Swift functions - ex1 - function named “sum” that adds two integers and returns the result.
+func sum(a: Int, b: Int) -> Int {
+    let result = a + b
+    return result
+}
+print("The sum of the numbers are \(sum(a: 100, b: 100))")
+
+func sum1(a:Float, b:Float) {
+    print("The sum is \(a+b)")
+}
+sum1(a: 3.3, b: 3.8)
+
+
+// Swift functions - ex2 - function called “concatenate” that takes two strings as parameters and returns their concatenation.
+func concatenate(fName: String, lName: String) -> String {
+    let actualName = fName + lName
+    return actualName
+}
+print(concatenate(fName: "Rohit ", lName: "Paul"))
+
+
+// Swift functions - ex3 -  function named “celsiusToFahrenheit” that converts a temperature in Celsius to Fahrenheit
+func celsiusToFahrenheit(C: Int) -> Int {
+    let F  = (9/5)*C + 32
+    return F
+}
+print("Boston temperature rn is \(celsiusToFahrenheit(C: 1))")
+
+
+// Swift functions - ex4 - function named “isEven” that takes an integer as input and returns true if it's even, false otherwise
+
+/// below is an almost right attempt but wrong method
+//func isEven(num: Int) -> Int {
+//    if num / 2 == 1 {
+//        print(true)
+//    } else {
+//        print(false)
+//    }
+//    return num
+//}
+//print(isEven(num: 2))
+
+/// here is the right method
+func isEven(number: Int) -> Bool {
+    if number % 2 == 0 {
+        return true
+    } else {
+        return false
+    }
+}
+print(isEven(number: 9))
+
+
+// Swift functions - ex5 - function called “greet” that takes name as a parameter and returns a greeting message
+func greet(name: String) -> String {
+    return "Hi my name is \(name). So nice to meet you!"
+}
+print(greet(name: "Sam"))
+/// or
+func greetAgain(name1: String) -> String {
+    let message = "Well, hello. My name is \(name1)"
+    return message
+}
+print(greetAgain(name1: "Dean"))
+
+
+// Swift enumerations - ex1 - Create a simple enum for weekdays. Print the enum case
+
+
+
