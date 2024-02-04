@@ -275,7 +275,134 @@ func greetAgain(name1: String) -> String {
 print(greetAgain(name1: "Dean"))
 
 
-// Swift enumerations - ex1 - Create a simple enum for weekdays. Print the enum case
+// Swift enumerations - ex1 - Create a simple enum for weekdays. Print the enum cases
+enum WeekDays: CaseIterable {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+    case sunday
+}
+print(WeekDays.allCases)
 
 
+// Swift enumerations - ex2 - Define a direction enum with cases for left, right, up and down. Print a random direction.
+enum Direction: CaseIterable {
+    case left
+    case right
+    case up
+    case down
+}
+print(Direction.allCases.randomElement()!)
+/// The force unwrapping is required because there is a possibility of an enum having no cases and thus randomElement() would return nil
 
+
+// Swift enumerations - ex3 -   Define a NetworkError enum with cases like noInternet, serverError, etc. Print a sample error case.
+enum NetworkError {
+    case noInternet
+    case serverError
+}
+print(NetworkError.noInternet)
+/// or
+enum NetworkError1: CaseIterable {
+    case noInternet
+    case serverError
+}
+let errMsg = NetworkError1.serverError
+
+switch errMsg {
+case .noInternet:
+    print("No internet!")
+case .serverError:
+    print("Server error!")
+}
+
+
+// Swift enumerations - ex4 - Declare an enum for app screens like home, settings, etc. Associate relevant data with each case.
+enum AppScreens {
+    case home(String, String, String)
+    case settings(String, String, String)
+}
+var appScreen1 = AppScreens.home("Wallpaper", "Time", "Battery %")
+var appScreen2 = AppScreens.settings("About", "General", "System")
+
+/// in order to access each enumerated case value, we can use switch case statement
+switch appScreen1 {
+case .home(let wallpaper, let time, let battery):
+    print("Here is my home wallpaper. It has a \(wallpaper), \(time) and a \(battery) icon")
+case .settings(let about, let general, let system):
+    print("Here are some basic settings in my phone: \(about), \(general) and \(system)")
+}
+
+switch appScreen2 {
+case .home(let wallpaper, let time, let battery):
+    print("Here is my home wallpaper. It has a \(wallpaper), \(time) and a \(battery) icon")
+case .settings(let about, let general, let system):
+    print("Here are some basic settings in my phone: \(about), \(general) and \(system)")
+}
+
+
+// Swift enumerations - ex5 - Create an enum for numeric digits with String value for each digit. Print the raw value of any case.
+enum NumericDigits: String {
+    case one = "1"
+    case two = "2"
+    case three = "5"
+}
+print(NumericDigits.three.rawValue)
+
+
+// Swift optionals pt2 - ex1 - Create an optional String variable and check if it contains a value before printing it
+var optString: String?
+if let rawString = optString { /// here we use if let because we are checking if optString has a value. If it does, if let unwraps the value and assigns to rawString
+    print("String found: \(rawString)")
+} else {
+    print("No string found!")
+}
+
+
+// Swift optionals pt2 - ex2 - Declare an optional Int variable. If it has a value, unwrap and print it.
+var optInt: Int?
+if let rawInt = optInt {
+    print("Here is a sample number: \(rawInt)")
+} else {
+    print("I got nothing.")
+}
+/// another example:
+//var optInt: Int? = 25
+//if let rawInt = optInt {
+//    print("Here is a sample number: \(rawInt)")
+//} else {
+//    print("I got nothing.")
+//}
+/// prints "Here is a sample number: 25"
+
+
+// Swift optionals pt2 - ex3 - Write a function that takes an optional Double and returns the square of the number if not nil.
+func math(inputA: Double?) -> Double {
+    if let unrapA = inputA {
+        return unrapA * unrapA
+    } else {
+        return 0
+    }
+}
+
+print(math(inputA: nil))
+print(math(inputA: 100))
+
+
+// Swift optionals pt2 - ex4 - Declare two optional variables. Assign values if they are nil using ?? operator.
+var optVar1: String?
+var optVar2: String?
+
+if optVar1 == nil {
+    var newVar1 = optVar1 ?? "hello"
+    print(newVar1)
+}
+
+if optVar2 == nil {
+    var newVar2 = optVar2 ?? "World"
+    print(newVar2)
+}
+/// ?? keyword helps to add data to the optional variable that was declared initially. Syntax: var someVariable = initialDeclaredOptionalVariable ?? someValue
